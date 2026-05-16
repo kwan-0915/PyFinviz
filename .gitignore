@@ -1,0 +1,11 @@
+/.idea/
+/logs/
+/plots/
+/yaml/
+/.vscode/
+finmarketpy.log
+__pycache__
+.DS_Store
+**/*.ipynb_checkpoints/
+/src/_local/
+/notebooks/_local/
