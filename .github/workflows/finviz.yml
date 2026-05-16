@@ -1,8 +1,9 @@
 name: finviz
 
-workflow_dispatch:
-
 on:
+  # Allows manual triggering from the Actions tab
+  workflow_dispatch:
+
   schedule:
     - cron: '30 8 * * 1-5'
       timezone: "Asia/Hong_Kong"
