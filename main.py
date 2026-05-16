@@ -9,6 +9,7 @@ from pyfinviz import Screener
 warnings.filterwarnings("ignore")
 
 dest_dir = os.path.join(os.getcwd(), "data")
+if not os.path.exists(dest_dir): os.makedirs(dest_dir)
 
 def main():
     custom_headers = {
