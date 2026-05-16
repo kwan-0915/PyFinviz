@@ -2,6 +2,7 @@ import os
 import warnings
 import requests
 import pandas as pd
+from tqdm.auto import tqdm
 from bs4 import BeautifulSoup
 from pyfinviz import Screener
 
@@ -27,12 +28,8 @@ def main():
 
     if not num_page.isnumeric(): raise ValueError(f"Invalid page number, {num_page}")
 
-    print("Total pages: ", num_page)
-
     pages, all_ticker = [i for i in range(1, int(num_page) + 1)], []
-    for i in pages:
-        print("Processing page", i)
-
+    for i in tqdm(pages, total=len(pages), desc="Downloading pages"):
         try:
             screener = Screener(pages=[i])
 
