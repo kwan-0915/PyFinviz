@@ -27,6 +27,8 @@ def main():
 
     if not num_page.isnumeric(): raise ValueError(f"Invalid page number, {num_page}")
 
+    print("Total pages: ", num_page)
+
     pages, all_ticker = [i for i in range(1, int(num_page) + 1)], []
     for i in pages:
         print("Processing page", i)
