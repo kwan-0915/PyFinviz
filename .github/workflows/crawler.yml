@@ -1,4 +1,4 @@
-name: finviz
+name: crawler
 
 on:
   # Allows manual triggering from the Actions tab
