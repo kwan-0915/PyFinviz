@@ -52,9 +52,9 @@ def download_ishares():
     url_mapper = {
         "CNDX": "https://www.ishares.com/ch/professionals/en/products/253741/ishares-nasdaq-100-ucits-etf/1495092304805.ajax?fileType=csv&fileName=CSNDX_holdings&dataType=fund",
         "IVV": "https://www.ishares.com/ch/professionals/en/products/239726/ishares-core-sp-500-etf/1495092304805.ajax?fileType=csv&fileName=IVV_holdings&dataType=fund",
-        "IWB": f"{russel_url}&portfolioId=239707&userType=individual&asOfDate=20260518&component=holdings",
-        "IWM": f"{russel_url}&portfolioId=239710&userType=individual&asOfDate=20260518&component=holdings",
-        "IWV": f"{russel_url}&portfolioId=239714&userType=individual&asOfDate=20260518&component=holdings"
+        "IWB": f"{russel_url}&portfolioId=239707&userType=individual&component=holdings",
+        "IWM": f"{russel_url}&portfolioId=239710&userType=individual&component=holdings",
+        "IWV": f"{russel_url}&portfolioId=239714&userType=individual&component=holdings"
     }
 
     for product, url in tqdm(url_mapper.items(), total=len(url_mapper.keys()), desc="Downloading iShares"):
