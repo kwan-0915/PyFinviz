@@ -47,14 +47,14 @@ def download_finviz():
         all_ticker.to_csv(os.path.join(dest_dir, f"Finviz_{pd.Timestamp.now().__str__().split(' ')[0]}.csv"), index=False)
 
 def download_ishares():
-    russel_url = "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appType=PRODUCT_PAGE&appSubType=ISHARES&targetSite=us-ishares&locale=en_US"
+    base_url = "https://www.blackrock.com/varnish-api/blk-one01-product-data/product-data/api/v1/get-fund-document?appType=PRODUCT_PAGE&appSubType=ISHARES&targetSite=us-ishares&locale=en_US"
 
     url_mapper = {
         "CNDX": "https://www.ishares.com/ch/professionals/en/products/253741/ishares-nasdaq-100-ucits-etf/1495092304805.ajax?fileType=csv&fileName=CSNDX_holdings&dataType=fund",
-        "IVV": "https://www.ishares.com/ch/professionals/en/products/239726/ishares-core-sp-500-etf/1495092304805.ajax?fileType=csv&fileName=IVV_holdings&dataType=fund",
-        "IWB": f"{russel_url}&portfolioId=239707&userType=individual&component=holdings",
-        "IWM": f"{russel_url}&portfolioId=239710&userType=individual&component=holdings",
-        "IWV": f"{russel_url}&portfolioId=239714&userType=individual&component=holdings"
+        "IVV": f"{base_url}&portfolioId=239726&userType=individual&component=holdings",
+        "IWB": f"{base_url}&portfolioId=239707&userType=individual&component=holdings",
+        "IWM": f"{base_url}&portfolioId=239710&userType=individual&component=holdings",
+        "IWV": f"{base_url}&portfolioId=239714&userType=individual&component=holdings"
     }
 
     for product, url in tqdm(url_mapper.items(), total=len(url_mapper.keys()), desc="Downloading iShares"):
